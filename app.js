@@ -48,7 +48,7 @@ nextButton.addEventListener('click', () => {
     gameRounds = gameRounds + 1;
     totalRounds.textContent = `Round: ${gameRounds + 1}`;
     totalPokemonSeenCounter = totalPokemonSeenCounter + 3;
-    totalPokeSeen.textContent = `Total Pokemon Seen: ${totalPokeSeen}`;
+    totalPokeSeen.textContent = `Total Pokemon Seen: ${totalPokemonSeenCounter}`;
     
 
     newDeck();
