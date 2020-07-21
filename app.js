@@ -45,6 +45,8 @@ pokeRadioTags.forEach((radioTag) => {
 });
 
 nextButton.addEventListener('click', () => {
+    // pokemonCaptured = pokemonCaptured + 1;
+    // totalPokemonCaptured.textContent = `Pokemon Captured ${TotalPokemonCaptured}`;
     gameRounds = gameRounds + 1;
     totalRounds.textContent = `Round: ${gameRounds + 1}`;
     totalPokemonSeenCounter = totalPokemonSeenCounter + 3;
