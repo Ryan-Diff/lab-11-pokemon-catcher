@@ -1,40 +1,52 @@
 // import functions and grab DOM elements
 import { getRandomPoke } from './pokeutils.js';
 import Pokedex from './Pokedex.js';
+const totalRounds = document.getElementById('total-rounds');
+const totalPokeSeen = document.getElementById('total-pokemon-seen');
+const pokeImgTags = document.querySelectorAll('img');
+const pokeRadioTags = document.querySelectorAll('input');
+const nextButton = document.getElementById('next-button');
 // initialize state
-const nextButton = document.getElementById('userChoice');
-const pokemonDiv = document.querySelector('#pokemon');
+
+const pokemon = Pokedex.slice();
+let gameRounds = 0;
+let totalPokemonSeenCounter = 3;
 // set event listeners to update state and DOM
 
-let pokemonEncounter = 0;
-let capture = [];
-let rounds = 0;
-let notCaptured = Pokedex.slice();
+function newDeck() {
+    const randomPokemon1 = getRandomPoke(pokemon);
+    let randomPokemon2 = getRandomPoke(pokemon);
+    let randomPokemon3 = getRandomPoke(pokemon);
+    pokeImgTags[0].src = randomPokemon1.url_image;
+    pokeImgTags[1].src = randomPokemon2.url_image;
+    pokeImgTags[2].src = randomPokemon3.url_image;
 
-const randomPoke1 = getRandomPoke();
-let randomPoke2 = getRandomPoke();
-let randomPoke3  = getRandomPoke();
-
-while (randomPoke1.id === randomPoke2.id) {
-    randomPoke2 = getRandomPoke(notCaptured);
+    while (randomPokemon1 === randomPokemon2 || randomPokemon2 === randomPokemon3 || randomPokemon1 === randomPokemon3) {
+        randomPokemon2 = getRandomPoke(pokemon);
+        randomPokemon3 = getRandomPoke(pokemon);
+        pokeImgTags[0].src = randomPokemon1.url_image;
+        pokeImgTags[1].src = randomPokemon2.url_image;
+        pokeImgTags[2].src = randomPokemon3.url_image;
+    }
 }
 
-const labels = document.querySelectorAll('label');
+newDeck();
 
-const firstLabel = labels[0];
-const span1 = firstLabel.children[0];
-const input1 = firstLabel.children[1];
-const img1 = firstLabel.children[2];
+pokeRadioTags.forEach((radioTag) => {
+    radioTag.addEventListener('click', (e) => {
 
-const secondLabel = labels[0];
-const span2 = secondLabel.children[0];
-const input2 = secondLabel.children[1];
-const img2 = secondLabel.children[2];
+        return e;
+    });
+});
 
-const thirdLabel = labels[0];
-const span3 = thirdLabel.children[0];
-const input3 = thirdLabel.children[1];
-const img3 = thirdLabel.children[2];
+nextButton.addEventListener('click', () => {
+    gameRounds = gameRounds + 1;
+    totalRounds.textContent = `Round: ${gameRounds + 1}`;
+    totalPokemonSeenCounter = totalPokemonSeenCounter + 3;
+    totalPokeSeen.textContent = `Total Pokemon Seen: ${totalPokeSeen}`;
+
+    newDeck();
+});
 
 
 
