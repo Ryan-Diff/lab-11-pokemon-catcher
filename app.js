@@ -6,14 +6,19 @@ const totalPokeSeen = document.getElementById('total-pokemon-seen');
 const pokeImgTags = document.querySelectorAll('img');
 const pokeRadioTags = document.querySelectorAll('input');
 const nextButton = document.getElementById('next-button');
+const totalPokemonCaptured = document.getElementById('total-pokemon-captured');
 // initialize state
-
+let pokemonCaptured = 0;
 const pokemon = Pokedex.slice();
 let gameRounds = 0;
 let totalPokemonSeenCounter = 3;
+
 // set event listeners to update state and DOM
 
-function newDeck() {
+function newDeck() { 
+    if (gameRounds === 10) {
+        window.location.href = '../results.html';
+    }
     const randomPokemon1 = getRandomPoke(pokemon);
     let randomPokemon2 = getRandomPoke(pokemon);
     let randomPokemon3 = getRandomPoke(pokemon);
@@ -44,6 +49,7 @@ nextButton.addEventListener('click', () => {
     totalRounds.textContent = `Round: ${gameRounds + 1}`;
     totalPokemonSeenCounter = totalPokemonSeenCounter + 3;
     totalPokeSeen.textContent = `Total Pokemon Seen: ${totalPokeSeen}`;
+    
 
     newDeck();
 });
