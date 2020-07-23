@@ -13,7 +13,7 @@ const pokemon = Pokedex.slice();
 let gameRounds = 0;
 let totalPokemonSeenCounter = 3;
 let pokemonEncountered = [];
-let localStoragePokemon = getCurrentPokemonArray;
+let localStoragePokemon = getCurrentPokemonArray();
 
 
 // set event listeners to update state and DOM
@@ -56,15 +56,15 @@ newDeck();
 pokeRadioTags.forEach((radioTag) => {
     radioTag.addEventListener('click', (e) => {
         pokemonEncountered.push(e.target.value);
-
+        
         gameRounds = gameRounds + 1;
         totalRounds.textContent = `Round: ${gameRounds + 1}`;
-
+        
         totalPokemonSeenCounter = totalPokemonSeenCounter + 1;
         totalPokeSeen.textContent = `Total Pokemon Seen: ${totalPokemonSeenCounter}`;
-
+        
         addPokemonCaptures(localStoragePokemon, e.target.value);
-
+       
         newDeck();
     });
 });
