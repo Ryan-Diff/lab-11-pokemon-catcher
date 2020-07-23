@@ -11,9 +11,18 @@
     <link rel="stylesheet" href="styles/home.css">
     <title>Document</title>
 </head>
-
 <body>
     <main>
+        <section>
+            <h2>
+                Here are 10 PokeBalls 
+                <br>
+                Go catch Ten Pokemon
+            </h2>
+            <h6 id='total-rounds'>Captures: </h6>
+            <span id='total-pokemon-seen'>total-pokemon-seen: 3</span>
+            <h6 id='total-pokemon-seen'>total-pokemon-captured: </h6>
+        </section>
         
         <section class='main-section'>
             <p id='choose'></p>
@@ -34,11 +43,12 @@
                     <img>
                 </label>
             </div>
-            <button id='next-button'>Choose your Poke`mon</button>
+            <!-- <button id='next-button'>Choose your Poke`mon</button> -->
         </section>
-
+        
     </main>
-
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.js"></script>
     <script type="module" src="app.js"></script>
 </body>
 

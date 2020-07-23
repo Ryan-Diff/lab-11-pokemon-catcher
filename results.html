@@ -11,3 +11,33 @@
     <link rel="stylesheet" href="styles/home.css">
     <title>Document</title>
 </head>
+<body>
+    <main>
+        <section class="heading">
+            <h2>
+                Here is your haul!
+            </h2>
+        </section>
+        
+        <section class="pokemon-game">
+            <div id='chart-container'>
+                <span id="results"></span>
+                <canvas id='pokemonEncounteredChart' width='500' height='800'></canvas>
+                <canvas id='pokemonEncounteredChart2' width='500' height='800'></canvas>
+                
+            </div>
+            <span id='total-pokemon-seen'>total-pokemon-seen: </span>
+            
+            <div>
+                <button id='reset-button'>Reset Pokedex</button>>
+                <a href='./index.html'>Play Again?</a>
+            </div>
+        </section>
+        
+    </main>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.js"></script>
+    <script type="module" src="results.js"></script>
+</body>
+
+</html>
