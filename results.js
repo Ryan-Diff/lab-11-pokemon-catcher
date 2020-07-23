@@ -5,11 +5,6 @@ const statsPage = document.getElementById('results');
 const resetButton = document.getElementById('reset-button');
 const pokeChart = document.getElementById('chart-container');
 
-resetButton.addEventListener('click', () => {
-    localStorage.removeItem('CART');
-    statsPage.textContent = 'Cleared Pokedex';
-    pokeChart.classList.add('hidden');
-});
 
 let rawPokedex = localStorage.getItem('CART');
 let pokeArray = JSON.parse(rawPokedex);
@@ -50,3 +45,11 @@ new Chart(pokemonEncounteredChart, {
         }
     }  
 });
+       
+
+resetButton.addEventListener('click', () => {
+            localStorage.removeItem('CART');
+            statsPage.textContent = 'Cleared Pokedex';
+            pokeChart.classList.add('hidden');
+            window.location = './index.html';
+        });
